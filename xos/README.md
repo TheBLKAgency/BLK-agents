@@ -1,0 +1,108 @@
+# 🌍 Project Xos
+
+> A geophysically Earth-like planet with unique landmasses, simulated as a living sandbox.
+> History begins at **60 BC** and is watched, generated, and recorded — tick by tick, forever.
+
+Xos is a personal sandbox world. It is built to feel like Earth — same physics, same
+chemistry, breathable air, familiar climates and seasons — but with **seven invented
+continents**, its own oceans, peoples, and a history that nobody has written yet. We
+seed the world in **60 BC**, press play, and let civilizations rise, clash, trade,
+believe, and fall. Everything that happens gets recorded into a permanent chronicle.
+
+This folder is the **design source of truth**. Code is built _from_ these documents,
+not the other way around.
+
+---
+
+## The documents
+
+| # | Document | What it defines |
+|---|----------|-----------------|
+| 00 | **[`README.md`](./README.md)** (this file) | Vision, glossary, how the pieces fit |
+| 01 | **[`01-planet.md`](./01-planet.md)** | Geophysical spec: size, gravity, orbit, calendar, oceans, climate |
+| 02 | **[`02-continents.md`](./02-continents.md)** | The seven continents — geography, biomes, resources |
+| 03 | **[`03-civilizations-60bc.md`](./03-civilizations-60bc.md)** | The starting state: who exists when the clock starts |
+| 04 | **[`04-history-engine.md`](./04-history-engine.md)** | How history is generated — the hybrid rules + agents simulation |
+| 05 | **[`05-architecture.md`](./05-architecture.md)** | Tech build: Next.js + Supabase + Vercel, data model, the tick loop |
+
+---
+
+## The core idea in one picture
+
+```
+            ┌─────────────────────────────────────────────┐
+            │                  XOS WORLD                    │
+            │  (geophysical truth — fixed by design docs)   │
+            └───────────────────────┬─────────────────────┘
+                                    │ seeds
+                                    ▼
+   60 BC  ──►  ┌──────────── THE TICK LOOP (1 tick = 1 year) ───────────┐
+               │                                                          │
+               │   1. SYSTEMS (deterministic)                             │
+               │      population · climate · agriculture · tech ·         │
+               │      economy · disease · war resolution                  │
+               │              │ produces pressures & events               │
+               │              ▼                                           │
+               │   2. AGENTS (your repo's personas as civ leaders)        │
+               │      read state → make decisions → declare actions       │
+               │              │ narrated in-character                     │
+               │              ▼                                           │
+               │   3. CHRONICLE (permanent record)                        │
+               │      every event, decision, and outcome is written down  │
+               │                                                          │
+               └──────────────────────────┬───────────────────────────┘
+                                          │ advance year
+                                          ▼
+                                    next tick → ∞
+```
+
+The world's **physics and geography never change** — they're fixed here in the design
+docs. What changes is everything _on_ the world: borders, populations, technologies,
+religions, and the chronicle of events. That separation is what keeps the sim coherent
+no matter how far it runs.
+
+---
+
+## Why "hybrid"?
+
+Two ways to generate history, each with a flaw:
+
+- **Pure rules** → reproducible and cheap, but lifeless. Wars are just dice.
+- **Pure AI narrative** → vivid and surprising, but inconsistent and expensive.
+
+Xos uses **both**. Deterministic systems decide _what is true_ (a famine struck, an
+army of 40,000 is at the border, the treasury is empty). Agents — built on the personas
+already living in this repo's `game-development/`, `strategy/`, and `marketing/` folders,
+recast as rulers, generals, and prophets — decide _what to do about it_ and tell the
+story in their own voice. The systems keep the agents honest; the agents keep the world
+alive.
+
+See **[`04-history-engine.md`](./04-history-engine.md)** for the full mechanism.
+
+---
+
+## Glossary
+
+- **Tick** — one simulation step. 1 tick = 1 Xos year.
+- **Epoch** — the starting moment. Xos Epoch = **60 BC** (written `0 AX`, "Anno Xos", optional).
+- **Region** — a discrete map cell a civilization can control (province-sized).
+- **Polity / Civilization** — an organized people with a leader agent, territory, and stats.
+- **Agent** — an LLM persona that makes decisions for a polity and narrates them.
+- **System** — a deterministic rule module (population, climate, war, etc.).
+- **Event** — a single recorded happening (battle, plague, coronation, discovery).
+- **Chronicle** — the append-only, permanent history of all events.
+
+---
+
+## Status
+
+| Phase | State |
+|-------|-------|
+| Design docs | ▶ **In progress** (this pass) |
+| Supabase schema | ◻ Planned — spec in `05-architecture.md` |
+| Tick engine | ◻ Planned |
+| Next.js map + chronicle UI | ◻ Planned |
+| Vercel deploy + cron | ◻ Planned |
+
+> First milestone after design sign-off: stand up the Supabase schema and seed the
+> 60 BC starting state from `03-civilizations-60bc.md`.
