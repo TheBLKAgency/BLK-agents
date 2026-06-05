@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <radialGradient id="ocean" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#bdd9e1"/>
+      <stop offset="100%" stop-color="#8fbac8"/>
+    </radialGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4f9fb"/>
+      <stop offset="100%" stop-color="#d3e6ec"/>
+    </linearGradient>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#3a5a66" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- ================= OCEAN ================= -->
+  <rect x="0" y="0" width="1600" height="1040" fill="url(#ocean)"/>
+
+  <!-- subtle latitude graticule -->
+  <g stroke="#5f93a3" stroke-opacity="0.35" stroke-dasharray="2 8" fill="none">
+    <line x1="0" y1="430" x2="1600" y2="430"/>
+    <line x1="0" y1="560" x2="1600" y2="560"/>
+    <line x1="0" y1="690" x2="1600" y2="690"/>
+  </g>
+  <g fill="#2f5360" font-size="14" font-style="italic" opacity="0.7">
+    <text x="14" y="425">Tropic of the North · 23°N</text>
+    <text x="14" y="555">— — —  Equator  — — —</text>
+    <text x="14" y="685">Tropic of the South · 23°S</text>
+  </g>
+
+  <!-- polar ice -->
+  <path d="M0,0 H1600 V70 Q1200,120 800,90 Q400,60 0,100 Z" fill="url(#ice)"/>
+  <path d="M0,1040 H1600 V965 Q1150,1000 760,975 Q360,950 0,1000 Z" fill="url(#ice)"/>
+  <text x="780" y="40" text-anchor="middle" fill="#7fa6b3" font-size="16" letter-spacing="4">N O R T H E R N   I C E</text>
+  <text x="780" y="1028" text-anchor="middle" fill="#7fa6b3" font-size="16" letter-spacing="4">S O U T H E R N   I C E</text>
+
+  <!-- ================= LAND ================= -->
+  <!-- climate colors: boreal #9bb48f · temperate #8cb55f · subtrop/desert #d8c279 · tropical #5fa049 · highland #b6a98e -->
+  <g filter="url(#soft)" stroke="#5d4f3f" stroke-opacity="0.5" stroke-width="2">
+
+    <!-- AURELIA (temperate, NW) -->
+    <path d="M170,260 Q175,205 215,195 Q260,180 315,195 L350,178 Q400,175 440,205 Q468,235 452,275 Q470,310 440,340 Q400,365 350,348 L320,366 Q270,372 240,350 Q200,335 178,305 Q160,285 170,260 Z" fill="#8cb55f"/>
+
+    <!-- KESSARA (subtropical→desert, W-mid) -->
+    <path d="M178,452 Q200,408 250,402 L320,410 Q385,400 445,418 Q470,448 458,488 Q445,528 388,540 L320,552 Q262,548 222,524 Q185,500 178,452 Z" fill="#d8c279"/>
+
+    <!-- MURUNGA (equatorial, SW) -->
+    <path d="M180,600 Q200,568 255,566 L330,572 Q400,566 452,598 Q474,648 460,700 Q438,748 378,762 L318,766 Q258,748 212,712 Q170,672 168,632 Q166,612 180,600 Z" fill="#5fa049"/>
+
+    <!-- VOSKAR (boreal, NE, large) -->
+    <path d="M995,300 Q985,245 1035,205 Q1090,165 1165,158 L1255,156 Q1330,168 1372,210 Q1398,255 1378,300 Q1355,340 1295,352 L1210,362 Q1130,360 1060,344 Q1010,330 995,300 Z" fill="#9bb48f"/>
+
+    <!-- ZHANG-LU (subtropical→temperate, E-mid) -->
+    <path d="M998,460 Q990,415 1045,406 L1130,404 Q1215,398 1300,418 Q1338,448 1322,492 Q1300,532 1235,548 L1150,558 Q1075,550 1028,520 Q992,498 998,460 Z" fill="#a7c46d"/>
+
+    <!-- ITZALAN (tropical highland, SE) -->
+    <path d="M1098,640 Q1092,598 1150,586 L1235,588 Q1318,598 1362,640 Q1380,690 1360,738 Q1330,772 1268,778 L1198,778 Q1140,762 1112,718 Q1086,682 1098,640 Z" fill="#5fa049"/>
+    <!-- Itzalan highland overlay (cool plateau) -->
+    <path d="M1150,640 Q1210,620 1270,640 Q1300,680 1278,720 Q1230,748 1180,728 Q1138,690 1150,640 Z" fill="#b6a98e" stroke="none" opacity="0.85"/>
+
+    <!-- THULVEN (sub-antarctic, far south) -->
+    <path d="M582,852 Q620,824 690,824 L800,830 Q872,842 892,878 Q884,918 820,930 L720,934 Q638,928 598,902 Q566,882 582,852 Z" fill="#9bb48f"/>
+
+  </g>
+
+  <!-- ================= MOUNTAINS ================= -->
+  <g fill="#6b5d4c" stroke="#4d4234" stroke-width="1" stroke-opacity="0.6">
+    <!-- Caldemar Mts (E Aurelia) -->
+    <path d="M430,250 l10,-20 10,20 z"/><path d="M442,270 l10,-22 10,22 z"/><path d="M432,292 l9,-18 9,18 z"/>
+    <!-- Skel Mts (Voskar) -->
+    <path d="M1300,250 l11,-22 11,22 z"/><path d="M1318,232 l11,-22 11,22 z"/><path d="M1288,228 l10,-20 10,20 z"/>
+    <!-- Tian Wall (W Zhang-Lu) -->
+    <path d="M1012,470 l9,-18 9,18 z"/><path d="M1010,496 l9,-18 9,18 z"/><path d="M1016,522 l9,-18 9,18 z"/>
+    <!-- Q'an Cordillera (W Itzalan) -->
+    <path d="M1112,672 l10,-20 10,20 z"/><path d="M1118,700 l10,-20 10,20 z"/><path d="M1126,728 l9,-18 9,18 z"/>
+  </g>
+
+  <!-- ================= RIVERS ================= -->
+  <g fill="none" stroke="#4f93b4" stroke-width="2.4" stroke-opacity="0.85" stroke-linecap="round">
+    <!-- Oksus (Kessara) -->
+    <path d="M250,470 Q300,480 340,500 Q380,520 410,520"/>
+    <!-- Jin & Lo (Zhang-Lu) -->
+    <path d="M1060,440 Q1110,470 1150,470 Q1200,470 1250,500"/>
+    <path d="M1090,520 Q1140,510 1180,515 Q1230,520 1280,505"/>
+    <!-- Murunga Basin -->
+    <path d="M250,650 Q300,640 340,660 Q380,680 420,675 M340,660 Q345,700 360,730"/>
+  </g>
+
+  <!-- ================= OCEAN LABELS ================= -->
+  <g fill="#1f4753" font-style="italic" text-anchor="middle">
+    <text x="720" y="250" font-size="30" letter-spacing="3" opacity="0.8">The Auran Ocean</text>
+    <text x="720" y="560" font-size="40" letter-spacing="5" opacity="0.85">THE  PELAGINE</text>
+    <text x="700" y="588" font-size="16" opacity="0.7">— the great dividing ocean —</text>
+    <text x="930" y="650" font-size="24" letter-spacing="2" opacity="0.8">The Sunder</text>
+    <text x="330" y="392" font-size="17" opacity="0.85">The Glass Sea</text>
+    <text x="735" y="912" font-size="22" letter-spacing="2" opacity="0.8">The Vorth Deep</text>
+  </g>
+
+  <!-- Sunder islands + Tide-Lords -->
+  <g fill="#5fa049" stroke="#4d4234" stroke-width="1" stroke-opacity="0.5">
+    <circle cx="900" cy="600" r="7"/><circle cx="930" cy="618" r="5"/><circle cx="958" cy="598" r="6"/>
+    <circle cx="912" cy="630" r="4"/><circle cx="948" cy="632" r="4"/>
+  </g>
+
+  <!-- ================= CONTINENT NAMES ================= -->
+  <g fill="#3a2f22" font-size="26" letter-spacing="3" text-anchor="middle" font-weight="bold">
+    <text x="305" y="278">AURELIA</text>
+    <text x="318" y="480">KESSARA</text>
+    <text x="312" y="672">MURUNGA</text>
+    <text x="1185" y="262">VOSKAR</text>
+    <text x="1160" y="486">ZHANG-LU</text>
+    <text x="1232" y="706">ITZALAN</text>
+    <text x="735" y="884">THULVEN</text>
+  </g>
+
+  <!-- ================= CAPITALS ================= -->
+  <!-- Major = gold star; Minor = white dot; Wildcard = red diamond -->
+  <g font-size="14" fill="#1b1b1b">
+    <!-- stars (Majors) -->
+    <g fill="#e8a317" stroke="#5d4302" stroke-width="0.8">
+      <path d="M300,300 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M252,228 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M300,500 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M205,512 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M300,690 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M1175,210 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M1150,478 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+      <path d="M1225,700 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z"/>
+    </g>
+    <!-- minor dots -->
+    <g fill="#ffffff" stroke="#333" stroke-width="1">
+      <circle cx="370" cy="340" r="4.5"/>   <!-- Sundering Cities -->
+      <circle cx="412" cy="468" r="4.5"/>   <!-- Sunspire Emirate -->
+      <circle cx="360" cy="700" r="4.5"/>   <!-- Sava Cattle-Lords -->
+      <circle cx="430" cy="640" r="4.5"/>   <!-- Tooth Coast League -->
+      <circle cx="1110" cy="300" r="4.5"/>  <!-- Wolfsteppe Riders -->
+      <circle cx="1300" cy="330" r="4.5"/>  <!-- Deep-Taiga Clans -->
+      <circle cx="1210" cy="540" r="4.5"/>  <!-- Southmonsoon States -->
+      <circle cx="1035" cy="500" r="4.5"/>  <!-- Tian Wall March -->
+      <circle cx="1300" cy="660" r="4.5"/>  <!-- Q'an Sun-Houses -->
+      <circle cx="1180" cy="752" r="4.5"/>  <!-- Ballcourt Cities -->
+      <circle cx="700" cy="900" r="4.5"/>   <!-- Vorthshore Whalers -->
+    </g>
+    <!-- wildcard diamond -->
+    <g fill="#cf3b2e" stroke="#5d0f08" stroke-width="1">
+      <path d="M930,604 l8,8 -8,8 -8,-8 z"/>
+    </g>
+  </g>
+
+  <!-- capital labels (majors) -->
+  <g font-size="13.5" fill="#222" font-weight="bold">
+    <text x="318" y="298">Auria</text>
+    <text x="266" y="226">Norvane</text>
+    <text x="316" y="498">Kessar</text>
+    <text x="142" y="516">Khorr camp</text>
+    <text x="316" y="688">Oba's Seat</text>
+    <text x="1190" y="208">Skelgard</text>
+    <text x="1166" y="476">Jin</text>
+    <text x="1240" y="698">Altun</text>
+  </g>
+
+  <!-- ================= TITLE ================= -->
+  <g text-anchor="middle">
+    <text x="800" y="150" font-size="46" fill="#23170c" letter-spacing="6" font-weight="bold">X O S</text>
+    <text x="800" y="180" font-size="18" fill="#3a2f22" font-style="italic" letter-spacing="2">The Known World at the Founding · 60 BC</text>
+  </g>
+
+  <!-- ================= LEGEND ================= -->
+  <g transform="translate(120,800)">
+    <rect x="0" y="0" width="372" height="158" rx="8" fill="#fbf6e9" fill-opacity="0.92" stroke="#5d4f3f" stroke-width="1.5"/>
+    <text x="16" y="26" font-size="17" font-weight="bold" fill="#23170c">Legend</text>
+    <!-- climate swatches -->
+    <rect x="16" y="40" width="16" height="12" fill="#9bb48f"/><text x="40" y="51" font-size="12.5" fill="#23170c">Boreal / taiga</text>
+    <rect x="16" y="58" width="16" height="12" fill="#8cb55f"/><text x="40" y="69" font-size="12.5" fill="#23170c">Temperate</text>
+    <rect x="16" y="76" width="16" height="12" fill="#d8c279"/><text x="40" y="87" font-size="12.5" fill="#23170c">Subtropical / desert</text>
+    <rect x="16" y="94" width="16" height="12" fill="#5fa049"/><text x="40" y="105" font-size="12.5" fill="#23170c">Tropical</text>
+    <rect x="16" y="112" width="16" height="12" fill="#b6a98e"/><text x="40" y="123" font-size="12.5" fill="#23170c">Highland plateau</text>
+    <!-- capital symbols -->
+    <path d="M205,46 l4,9 10,1 -8,7 3,10 -9,-6 -9,6 3,-10 -8,-7 10,-1 z" fill="#e8a317" stroke="#5d4302" stroke-width="0.8"/>
+    <text x="228" y="51" font-size="12.5" fill="#23170c">Major power (8)</text>
+    <circle cx="210" cy="68" r="4.5" fill="#fff" stroke="#333"/><text x="228" y="72" font-size="12.5" fill="#23170c">Minor power (11)</text>
+    <path d="M210,86 l7,7 -7,7 -7,-7 z" fill="#cf3b2e" stroke="#5d0f08"/><text x="228" y="93" font-size="12.5" fill="#23170c">Wildcard — Tide-Lords</text>
+    <path d="M203,108 l9,-18 9,18 z" fill="#6b5d4c"/><text x="228" y="114" font-size="12.5" fill="#23170c">Mountain range</text>
+    <line x1="200" y1="130" x2="222" y2="130" stroke="#4f93b4" stroke-width="2.4"/><text x="228" y="134" font-size="12.5" fill="#23170c">Major river</text>
+  </g>
+</svg>
