@@ -11,27 +11,45 @@ round and "Iron Age plausible" — they're the engine's initial values, not cens
 
 ---
 
-## The eight starting powers
+## The twenty starting powers
 
-Seven continents, but history clusters — eight named polities carry the opening, with
-the rest of the map as tribal/uncontrolled regions the sim fills in.
+Seven continents, twenty named polities. History still clusters around a handful of
+**Major** powers, but each continent now carries rivals, frontier states, and a wildcard,
+so the opening map is alive rather than empty. Every polity is driven by a real persona
+from this repo — the bindings live in [`06-agent-mapping.md`](./06-agent-mapping.md).
 
-| # | Polity | Continent | Type | Pop. (est.) | Vibe |
-|---|--------|-----------|------|-------------|------|
-| 1 | **The Aurelian League** | Aurelia | Expanding republic→empire | 6.0 M | Rome at the republic's edge |
-| 2 | **Norvanic Tribes** | Aurelia (north) | Tribal confederation | 1.5 M | Gauls/Germans on the frontier |
-| 3 | **Kessar Dominion** | Kessara | Old river kingdom | 5.0 M | Egypt-meets-Persia, ancient & wealthy |
-| 4 | **Khorr Confederacy** | Kessara (steppe) | Nomad horse-clans | 0.8 M | Steppe raiders, caravan masters |
-| 5 | **Zhang Empire** | Zhang-Lu | Centralized bureaucratic empire | **12.0 M** | The Han-analog superpower |
-| 6 | **Skelgard Jarldoms** | Voskar | Seafaring raider-traders | 1.2 M | Norse-analog, rising |
-| 7 | **Altun Highland States** | Itzalan | Highland city-states | 3.0 M | Andean/Maya-analog, isolated |
-| 8 | **Murunga Kingdoms** | Murunga | Fragmented forest kingdoms | 4.0 M | Rich, populous, disunited |
+| # | Polity | Continent | Type | Pop. | Tier | Vibe |
+|---|--------|-----------|------|------|------|------|
+| 1 | **Aurelian League** | Aurelia | Republic→empire | 6.0 M | Major | Rome at the republic's edge |
+| 2 | **Norvanic Tribes** | Aurelia | Tribal confederation | 1.5 M | Major | Gauls/Germans on the frontier |
+| 3 | **Sundering Cities** | Aurelia | Maritime merchant republic | 1.0 M | Minor | Venice/Carthage of the Glass Sea |
+| 4 | **Kessar Dominion** | Kessara | Sacred river kingdom | 5.0 M | Major | Egypt-meets-Persia, ancient |
+| 5 | **Khorr Confederacy** | Kessara | Nomad horse-clans | 0.8 M | Major | Steppe raiders, caravan masters |
+| 6 | **Sunspire Emirate** | Kessara | Coastal trade port | 0.7 M | Minor | Wealthy neutral middleman |
+| 7 | **Basin Kingdoms** | Murunga | Forest river kingdom | 2.2 M | Major | Benin-analog, bronze & griots |
+| 8 | **Sava Cattle-Lords** | Murunga | Savanna herders | 1.0 M | Minor | Cattle-wealth expansionists |
+| 9 | **Tooth Coast League** | Murunga | Coastal trade cities | 0.8 M | Minor | Swahili-coast middlemen |
+| 10 | **Skelgard Jarldoms** | Voskar | Seafaring raiders | 1.2 M | Major | Norse-analog, rising |
+| 11 | **Wolfsteppe Riders** | Voskar | Cold-steppe cavalry | 0.6 M | Minor | Fast reactive horse-clans |
+| 12 | **Deep-Taiga Clans** | Voskar | Forest animists | 0.5 M | Minor | Shamanic fur peoples |
+| 13 | **Zhang Empire** | Zhang-Lu | Bureaucratic empire | **12.0 M** | Major | Han-analog superpower |
+| 14 | **Southmonsoon States** | Zhang-Lu | River delta city-states | 3.0 M | Minor | Pragmatic southern rivals |
+| 15 | **Tian Wall March** | Zhang-Lu | Militarized frontier state | 1.2 M | Minor | The watch on the steppe |
+| 16 | **Altun Highland States** | Itzalan | Astronomer priest-kings | 3.0 M | Major | Andean/Maya, isolated |
+| 17 | **Q'an Sun-Houses** | Itzalan | Feuding highland dynasties | 1.4 M | Minor | Lineage-obsessed rivals |
+| 18 | **Ballcourt Cities** | Itzalan | Lowland ritual-game culture | 1.2 M | Minor | Conflict ritualized as sport |
+| 19 | **Vorthshore Whalers** | Thulven | Sub-antarctic survivalists | 0.2 M | Minor | The only settled Thulven folk |
+| 20 | **The Tide-Lords** | Sunder isles | Stateless pirate-traders | 0.3 M | Wildcard | Homeless sea-network |
 
-**Unsettled / tribal at start:** most of Thulven, deep Murunga, far Voskar, deep Kessaran
-desert, Itzalan lowlands. These regions hold scattered peoples the sim can grow, absorb,
-or leave wild.
+**Unsettled / tribal at start:** most of Thulven, the Deep Green of Murunga, Frostmarch
+and far Voskar, Deep Khorr desert, and Itzalan's Far Terraces. These regions hold
+scattered peoples the sim can grow, absorb, or leave wild.
 
-Approx. **world population at tick 0: ~40–45 million** (Earth ~60 BC was ~200M; Xos
+**Tiers** (from `06`) govern simulation cost: *Major* powers take a full AI turn every
+year; *Minor* powers act on rules until a real pressure forces a decision; the *Wildcard*
+acts only when it has prey. This is how twenty agents stay affordable.
+
+Approx. **world population at tick 0: ~45–50 million** (Earth ~60 BC was ~200M; Xos
 starts lighter on purpose, leaving room to grow over the simulated centuries).
 
 ---
@@ -110,15 +128,43 @@ unless noted.
 - **Note:** Effectively isolated until ocean-crossing tech (a deliberate "discovery"
   flashpoint many centuries in).
 
-### 8. Murunga Kingdoms (Murunga)
-- **Government:** Several independent forest/savanna kingdoms (modeled as one polity with
-  low internal cohesion, splittable later).
-- **Territory:** Murunga Basin, Tooth Coast, Sava North, Sava South, The Highveld (5 regions).
-- **Stats:** Military 5 · Economy 6 · Tech 5 · Stability 4 · Legitimacy 5 · Culture 7.
-- **Strengths:** Large population, gold and ivory, fertile land, river trade.
-- **Tensions:** Disunity + jungle disease load → expansion is slow and costly; the engine
-  models a malaria-analog that historically protected and isolated the interior.
-- **Leader agent role:** *The Council of Kings* — rivalrous, trade-savvy, slow to unite.
+### 8. Basin Kingdoms (Murunga)
+- **Government:** Forest river kingdom — a powerful court culture of art, regalia, and oral
+  memory (the largest of Murunga's several kingdoms).
+- **Capital:** Oba's seat (Murunga Basin).
+- **Territory:** Murunga Basin, Deep Green fringe (2 regions).
+- **Stats:** Military 5 · Economy 6 · Tech 5 · Stability 5 · Legitimacy 7 · Culture 9.
+- **Strengths:** Large population, gold and ivory, bronze artistry, river trade, prestige.
+- **Tensions:** Jungle disease load (malaria-analog) makes expansion slow and costly;
+  rivalry with the Sava savanna kingdoms and Tooth Coast ports.
+- **Leader agent role:** *The Oba* — prestige-driven, art-and-memory court, slow to war.
+
+---
+
+## The twelve further powers (Minor & Wildcard)
+
+The remaining polities get the same stat blocks but run on the cheaper *Minor/Wildcard*
+turn budget (`06` tiers). Stats: Mil · Eco · Tech · Stab · Leg · Culture.
+
+| Polity (continent) | Stats | Territory | Defining tension / role |
+|--------------------|-------|-----------|--------------------------|
+| **Sundering Cities** (Aurelia) | 4·7·6·5·5·7 | Sundering Coast, Glasswater | Rich merchant republic squeezed between Aurelia and the sea; survives by deals, not armies |
+| **Sunspire Emirate** (Kessara) | 4·7·6·6·6·7 | Sunspire Coast | Neutral trade port that plays every neighbor; first to feel any war over the Glass Sea |
+| **Sava Cattle-Lords** (Murunga) | 5·5·4·4·5·6 | Sava North, Sava South, The Highveld | Herd-wealth expansionists; raid the Basin, pressured by drought |
+| **Tooth Coast League** (Murunga) | 4·6·5·5·5·6 | Tooth Coast, Mangrove Marches | Coastal middlemen linking interior gold to the sea; vulnerable to raiders |
+| **Wolfsteppe Riders** (Voskar) | 6·4·5·3·4·5 | Wolfsteppe | Fast reactive cavalry; strike settled lands at any sign of weakness |
+| **Deep-Taiga Clans** (Voskar) | 4·3·4·4·5·6 | Deep Taiga, Frostmarch | Animist fur-clans; survive by reading omens and syncretizing neighbors |
+| **Southmonsoon States** (Zhang-Lu) | 5·7·7·5·5·7 | Southmonsoon, Greater Zhang | Pragmatic delta city-states resisting Zhang centralization |
+| **Tian Wall March** (Zhang-Lu) | 7·5·7·6·6·5 | Tian Wall | Militarized frontier whose whole identity is holding the steppe back |
+| **Q'an Sun-Houses** (Itzalan) | 5·5·6·4·6·8 | Q'an Cordillera, Obsidian Valleys | Feuding dynasties obsessed with bloodline legitimacy |
+| **Ballcourt Cities** (Itzalan) | 4·5·5·5·6·8 | Lowland Itzal, Cloudvale | Channel conflict into sacred games; rising lowland power |
+| **Vorthshore Whalers** (Thulven) | 4·3·4·6·5·6 | Vorthshore, Glacier Coast | The only settled people of an empty continent; masters of scarcity |
+| **The Tide-Lords** (Sunder isles) | 6·5·5·3·3·5 | Sunder island bases (no mainland) | Stateless pirate-trader network; the map's wildcard raider |
+
+> **Why split Murunga and add rivals everywhere?** A single continent-spanning blob makes
+> dull history. Splitting it into the **Basin / Sava / Tooth Coast** rivalry — and seeding
+> every continent with a frontier state and a wildcard — means conflict and alliance can
+> ignite *within* a continent, not just between them. More edges = more history.
 
 ---
 

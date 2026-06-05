@@ -24,6 +24,7 @@ not the other way around.
 | 03 | **[`03-civilizations-60bc.md`](./03-civilizations-60bc.md)** | The starting state: who exists when the clock starts |
 | 04 | **[`04-history-engine.md`](./04-history-engine.md)** | How history is generated — the hybrid rules + agents simulation |
 | 05 | **[`05-architecture.md`](./05-architecture.md)** | Tech build: Next.js + Supabase + Vercel, data model, the tick loop |
+| 06 | **[`06-agent-mapping.md`](./06-agent-mapping.md)** | The 20 rulers — each bound to a real persona file in this repo |
 
 ---
 

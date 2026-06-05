@@ -128,6 +128,10 @@ the agent personalities already in this repo** as the behavioral backbone:
 > and worldview from `03`, with (b) a personality lifted from an existing repo agent.
 > This is the literal payoff of building Xos *inside* the agency repo.
 
+> The table above is illustrative. The **full, authoritative roster of all 20 rulers** —
+> each bound to a specific persona file with its role-adapter prompt — lives in
+> [`06-agent-mapping.md`](./06-agent-mapping.md).
+
 ### The brief → decision contract
 
 Each tick, every leader agent receives a compact **BRIEF** (never the whole world — just
